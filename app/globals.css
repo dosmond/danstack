@@ -9,10 +9,36 @@
 }
 
 body {
-  background: linear-gradient(-45deg, #000428, #004e92, #7b4397, #dc2430);
+  background: linear-gradient(-45deg, #004e92, #7b4397, #dc2430);
   backdrop-filter: blur(10px);
   background-size: 400% 400%;
-  animation: gradient 15s ease infinite;
+  animation: gradient 10s ease infinite;
+}
+
+
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.glass-panel {
+  --border-radius: 16px;
+
+  color: #fff;
+  background-color: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-top-left-radius: var(--border-radius);
+  border-top-right-radius: var(--border-radius);
+  box-shadow:rgba(255, 255, 255, 0.1) 0 4px 6px;
 }
 
 .glass-button {
@@ -35,21 +61,11 @@ body {
   background-color: rgba(255, 255, 255, 0.2);
 }
 
-@keyframes gradient {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
+.top-clip {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - 50px));
 }
 
-.glass-panel {
-  color: #fff;
-  background-color: rgba(255, 255, 255, 0.2);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
+.bottom-clip {
+  clip-path: polygon(0 0, 100% 50px, 100% 100%, 0 100%);
+    margin-top: -40px;
 }
