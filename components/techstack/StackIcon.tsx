@@ -15,7 +15,7 @@ export const StackIcon = ({
     <motion.div layout className="avatar">
       <div
         className={clsx(
-          "w-32 h-32 lg:h-128 lg:w-128 rounded-md shadow-xl",
+          "w-32 h-32 lg:h-128 lg:w-128 rounded-md shadow-xl relative",
           backdrop && "bg-base-100 m-[-8px]"
         )}
       >
@@ -25,6 +25,7 @@ export const StackIcon = ({
           layout="fill"
           objectFit="contain"
           alt={alt}
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         />
       </div>
     </motion.div>
