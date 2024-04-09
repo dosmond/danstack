@@ -15,7 +15,7 @@ export const StackIcon = ({
     <motion.div layout className="avatar">
       <div
         className={clsx(
-          "w-24 h-24 rounded-md shadow-xl",
+          "w-32 h-32 rounded-md shadow-xl",
           backdrop && "bg-base-100 m-[-8px]"
         )}
       >

@@ -15,8 +15,6 @@ body {
   animation: gradient 10s ease infinite;
 }
 
-
-
 @keyframes gradient {
   0% {
     background-position: 0% 50%;
@@ -38,7 +36,7 @@ body {
   backdrop-filter: blur(10px);
   border-top-left-radius: var(--border-radius);
   border-top-right-radius: var(--border-radius);
-  box-shadow:rgba(255, 255, 255, 0.1) 0 4px 6px;
+  box-shadow: rgba(255, 255, 255, 0.1) 0 4px 6px;
 }
 
 .glass-button {
@@ -62,10 +60,15 @@ body {
 }
 
 .top-clip {
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - 50px));
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    100% calc(100% - 50px),
+    50% 100%,
+    0 calc(100% - 50px)
+  );
 }
-
 .bottom-clip {
-  clip-path: polygon(0 0, 100% 50px, 100% 100%, 0 100%);
-    margin-top: -40px;
+  clip-path: polygon(0 0, 50% 50px, 100% 0, 100% 100%, 0 100%);
+  margin-top: -40px;
 }

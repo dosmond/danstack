@@ -75,11 +75,44 @@ export const TechStack = forwardRef((_, ref: ForwardedRef<HTMLDivElement>) => {
     >
       <div
         className={clsx(
-          "h-full w-full glass-panel p-16 flex gap-8 flex-col lg:flex-row pb-[20vh]"
+          "h-full w-full glass-panel p-16 flex gap-8 pb-[20vh] flex-col lg:flex-row lg:items-center "
         )}
       >
-        <div className="card w-full shadow-xl bg-base-100 h-[50%] lg:h-full">
-          <div className="card-body">Hello world</div>
+        <div className="h-full w-full flex flex-col justify-center items-center gap-8">
+          <div className="card w-full shadow-xl bg-base-100 min-h-[580px%]">
+            <div className="card-body">
+              <article className="prose lg:prose-xl text-slate-300">
+                <h2 className="text-slate-300">My tech stack</h2>
+                <p>
+                  I didn&apos;t always think that I would spend so much time in
+                  the front end world. I used to imagine myself as a purely
+                  backend developer. I hadn&apos;t even touched the front end
+                  until my first internship while in college using Angular.
+                </p>
+                <p>
+                  Now I find myself enjoying working on every aspect of
+                  development. From project init, diving into all the config
+                  files for optimal build sizes, to system architecture and
+                  CI/CD.
+                </p>
+                <p>
+                  I love discovering new tools and new languages. My next
+                  adventure is going to be diving into Rust.
+                </p>
+              </article>
+            </div>
+          </div>
+          <div className="mockup-code bg-base-100 text-primary-content w-full">
+            <pre data-prefix="$" className="text-slate-300">
+              <code>C:/dev/life_and_universe: node ./answer.js</code>
+            </pre>
+            <pre data-prefix=">" className="text-warning">
+              <code>Analyzing everything...</code>
+            </pre>
+            <pre data-prefix=">" className="text-success">
+              <code>Answer: 42</code>
+            </pre>
+          </div>
         </div>
         <div ref={innerRef} className="w-full h-full">
           <AnimatePresence>
