@@ -71,11 +71,11 @@ export const TechStack = forwardRef((_, ref: ForwardedRef<HTMLDivElement>) => {
     <section
       ref={ref}
       id="stack"
-      className="h-[110vh] w-full flex relative top-clip"
+      className="h-fit lg:h-[110vh] w-full flex relative top-clip"
     >
       <div
         className={clsx(
-          "h-full w-full glass-panel p-16 flex gap-8 pb-[20vh] flex-col lg:flex-row lg:items-center "
+          "h-full w-full glass-panel p-8 flex gap-8 pb-[20vh] flex-col lg:flex-row lg:items-center lg:p-16 "
         )}
       >
         <div className="h-full w-full flex flex-col justify-center items-center gap-8">
