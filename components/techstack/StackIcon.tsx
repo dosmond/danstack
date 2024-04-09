@@ -12,18 +12,17 @@ export const StackIcon = ({
   backdrop: boolean;
 }) => {
   return (
-    <motion.div layout className="avatar">
+    <motion.div layout>
       <div
         className={clsx(
           "w-32 h-32 lg:h-128 lg:w-128 rounded-md shadow-xl relative",
-          backdrop && "bg-base-100 m-[-8px]"
+          backdrop && "bg-base-100"
         )}
       >
         <Image
-          className="rounded"
+          className={clsx("rounded object-contain", backdrop && "p-[8px]")}
           src={src}
-          layout="fill"
-          objectFit="contain"
+          fill
           alt={alt}
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         />
