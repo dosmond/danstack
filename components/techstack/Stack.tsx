@@ -1,7 +1,12 @@
 "use client";
-import React, { ForwardedRef, forwardRef, useRef } from "react";
+import React, { ForwardedRef, forwardRef, useEffect, useRef } from "react";
 import { StackPanel } from "./StackPanel";
-import { AnimatePresence, motion, useInView } from "framer-motion";
+import {
+  AnimatePresence,
+  motion,
+  useAnimation,
+  useInView,
+} from "framer-motion";
 import { useBreakpoint } from "@/hooks/useBreakpoint";
 import clsx from "clsx";
 import { ThrowMe } from "./ThrowMe";
@@ -63,10 +68,19 @@ const logos = [
 
 // eslint-disable-next-line react/display-name
 export const TechStack = forwardRef((_, ref: ForwardedRef<HTMLDivElement>) => {
-  const innerRef = useRef<HTMLDivElement>(null);
+  const innerRef = useRef<HTMLUListElement>(null);
   const isInView = useInView(innerRef);
+  const controls = useAnimation();
 
   const breakpoint = useBreakpoint();
+
+  useEffect(() => {
+    if (isInView) {
+      controls.start("visible");
+    } else {
+      controls.start("hidden");
+    }
+  }, [isInView, controls]);
 
   return (
     <section
@@ -115,36 +129,35 @@ export const TechStack = forwardRef((_, ref: ForwardedRef<HTMLDivElement>) => {
             </pre>
           </div>
         </div>
-        <div ref={innerRef} className="w-full h-full">
+        <div className="w-full h-full">
           <ThrowMe />
           <AnimatePresence>
-            {isInView && (
-              <motion.ul
-                layout
-                variants={{
-                  hidden: { opacity: 1, scale: 0 },
-                  visible: {
-                    opacity: 1,
-                    scale: 1,
-                    transition: {
-                      delayChildren: 0.2,
-                      staggerChildren: 0.1,
-                    },
+            <motion.ul
+              ref={innerRef}
+              layout
+              animate={controls}
+              variants={{
+                hidden: { opacity: 1, scale: 0 },
+                visible: {
+                  opacity: 1,
+                  scale: 1,
+                  transition: {
+                    delayChildren: 0.2,
+                    staggerChildren: 0.1,
                   },
-                }}
-                initial="hidden"
-                animate="visible"
-                className={clsx(
-                  "relative h-full w-full grid grid-cols-2 grid-rows-2 gap-8 align-center justify-center lg:grid-cols-3 lg:grid-rows-3"
-                )}
-              >
-                {logos
-                  .filter((logo) => logo.min <= breakpoint)
-                  .map((logo, index) => (
-                    <StackPanel key={index} {...logo} />
-                  ))}
-              </motion.ul>
-            )}
+                },
+              }}
+              initial="hidden"
+              className={clsx(
+                "relative h-full w-full grid grid-cols-2 grid-rows-2 gap-8 align-center justify-center lg:grid-cols-3 lg:grid-rows-3"
+              )}
+            >
+              {logos
+                .filter((logo) => logo.min <= breakpoint)
+                .map((logo, index) => (
+                  <StackPanel key={index} {...logo} containerRef={innerRef} />
+                ))}
+            </motion.ul>
           </AnimatePresence>
         </div>
       </div>

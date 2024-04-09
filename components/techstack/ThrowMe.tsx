@@ -11,7 +11,10 @@ export const ThrowMe = () => {
   const isInView = useInView(ref);
 
   return (
-    <div ref={ref}>
+    <div
+      ref={ref}
+      className="absolute right-0 bottom-[10%] lg:top-[10%] h-[40px] w-fit"
+    >
       <AnimatePresence>
         {isInView && (
           <motion.div
@@ -19,10 +22,7 @@ export const ThrowMe = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 1 }}
-            className={clsx(
-              handFont.className,
-              "absolute w-[120px] right-0 bottom-[10%] lg:top-[10%]"
-            )}
+            className={clsx(handFont.className, "absolute w-[120px] right-0 ")}
           >
             <Image
               src="/curved-arrow.svg"

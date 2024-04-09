@@ -6,11 +6,13 @@ import { StackIcon } from "./StackIcon";
 export const StackPanel = ({
   icon,
   alt,
+  containerRef,
   backdrop = false,
 }: {
   icon: string;
   alt: string;
   backdrop?: boolean;
+  containerRef: React.RefObject<HTMLUListElement>;
 }) => {
   const [iconRef, iconAnimate] = useAnimate();
 
@@ -42,7 +44,12 @@ export const StackPanel = ({
       className="h-full w-full flex items-center justify-center"
     >
       <motion.div layout ref={iconRef}>
-        <StackIcon src={icon} alt={alt} backdrop={backdrop} />
+        <StackIcon
+          src={icon}
+          alt={alt}
+          backdrop={backdrop}
+          containerRef={containerRef}
+        />
       </motion.div>
     </motion.li>
   );

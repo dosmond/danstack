@@ -1,16 +1,29 @@
 import clsx from "clsx";
-import { motion } from "framer-motion";
+import { motion, useAnimation, useInView } from "framer-motion";
 import Image from "next/image";
+import { useEffect } from "react";
 
 export const StackIcon = ({
   src,
   alt,
   backdrop,
+  containerRef,
 }: {
   src: string;
   alt: string;
   backdrop: boolean;
+  containerRef: React.RefObject<HTMLUListElement>;
 }) => {
+  const isInView = useInView(containerRef);
+  const controls = useAnimation();
+
+  useEffect(() => {
+    if (!isInView) {
+      console.log("here");
+      controls.start({ x: 0, y: 0 });
+    }
+  }, [controls, isInView, containerRef]);
+
   return (
     <motion.div
       layout
@@ -20,14 +33,10 @@ export const StackIcon = ({
         transition: { duration: 0.2 },
       }}
       drag
-      dragConstraints={{
-        top: -125,
-        right: 125,
-        bottom: 125,
-        left: -125,
-      }}
+      dragConstraints={containerRef}
       dragTransition={{ bounceStiffness: 100, bounceDamping: 20 }}
       dragElastic={0.1}
+      animate={controls}
     >
       <motion.div
         className={clsx(
