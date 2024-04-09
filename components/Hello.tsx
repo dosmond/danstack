@@ -23,25 +23,27 @@ export const Hello = ({
   return (
     <div className="flex gap-8 flex-col h-[100vh] justify-center text-center">
       <AnimatePresence>
-        <motion.div
+        <motion.article
           initial={{ y: -100, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={transitionSettings}
-          className="flex gap-3 justify-center"
+          className="flex gap-3 justify-center prose lg:prose-xl"
         >
-          <h1 className="text-5xl text-white font-extralight">Hey, I&apos;m</h1>{" "}
-          <h1 className="text-5xl text-[#ADD8E6] font-medium">Daniel</h1>
-        </motion.div>
+          <h1 className="text-white font-extralight">Hey, I&apos;m</h1>{" "}
+          <h1 className="text-[#ADD8E6] font-medium">Daniel</h1>
+        </motion.article>
       </AnimatePresence>
       <AnimatePresence>
-        <motion.h1
-          initial={{ y: -100, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={transitionSettings}
-          className="text-5xl text-white font-extralight"
-        >
-          I&apos;m a fullstack developer
-        </motion.h1>
+        <article className="prose lg:prose-xl">
+          <motion.h1
+            initial={{ y: -100, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={transitionSettings}
+            className="text-white font-extralight"
+          >
+            I&apos;m a fullstack developer
+          </motion.h1>
+        </article>
       </AnimatePresence>
       <AnimatePresence>
         {stackRef && (
@@ -49,6 +51,7 @@ export const Hello = ({
             initial={{ y: 100, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={transitionSettings}
+            className="mt-[16px]"
           >
             <Link href="#stack" scroll={false}>
               <button onClick={handleOnClick} className="glass-button">

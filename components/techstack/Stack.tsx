@@ -125,8 +125,8 @@ export const TechStack = forwardRef((_, ref: ForwardedRef<HTMLDivElement>) => {
                     opacity: 1,
                     scale: 1,
                     transition: {
-                      delayChildren: 0.6,
-                      staggerChildren: 0.2,
+                      delayChildren: 0.2,
+                      staggerChildren: 0.1,
                     },
                   },
                 }}
