@@ -4,6 +4,7 @@ import { StackPanel } from "./StackPanel";
 import { AnimatePresence, motion, useInView } from "framer-motion";
 import { useBreakpoint } from "@/hooks/useBreakpoint";
 import clsx from "clsx";
+import { ThrowMe } from "./ThrowMe";
 
 const logos = [
   {
@@ -115,6 +116,7 @@ export const TechStack = forwardRef((_, ref: ForwardedRef<HTMLDivElement>) => {
           </div>
         </div>
         <div ref={innerRef} className="w-full h-full">
+          <ThrowMe />
           <AnimatePresence>
             {isInView && (
               <motion.ul

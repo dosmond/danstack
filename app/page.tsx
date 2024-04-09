@@ -1,6 +1,7 @@
 "use client";
 import { Hello } from "@/components/Hello";
 import { AboutMe } from "@/components/about/AboutMe";
+import { Footer } from "@/components/footer/Footer";
 import { TechStack } from "@/components/techstack/Stack";
 import { useRef } from "react";
 
@@ -12,6 +13,7 @@ export default function Home() {
       <Hello stackRef={stackRef} />
       <TechStack ref={stackRef} />
       <AboutMe />
+      <Footer />
     </main>
   );
 }
