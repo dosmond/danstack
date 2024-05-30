@@ -55,7 +55,7 @@ export const Hello = ({
           >
             <Link href="#stack" scroll={false}>
               <button onClick={handleOnClick} className="glass-button">
-                Check out my site
+                Check out my site (WIP)
               </button>
             </Link>
           </motion.div>
