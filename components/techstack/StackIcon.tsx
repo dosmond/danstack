@@ -19,7 +19,6 @@ export const StackIcon = ({
 
   useEffect(() => {
     if (!isInView) {
-      console.log("here");
       controls.start({ x: 0, y: 0 });
     }
   }, [controls, isInView, containerRef]);
